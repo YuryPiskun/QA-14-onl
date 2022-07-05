@@ -10,14 +10,14 @@ import java.util.List;
 
 public class Dropdown extends HerokuApp{
     @BeforeMethod
-    public void DropdownLink(){
+    public void dropdownLink(){
         WebElement dropdownLink = driver.findElement(By.xpath
                 ("//a[text()='Dropdown']"));
         dropdownLink.click();
     }
 
     @Test
-    public void ValidateDropdownList(){
+    public void validateDropdownList(){
         WebElement dropdown = driver.findElement(By.id("dropdown"));
         dropdown.click();
         List<WebElement> dropdownList = driver.findElements(By.xpath
@@ -26,7 +26,7 @@ public class Dropdown extends HerokuApp{
     }
 
     @Test
-    public void PickUpFirstItem(){
+    public void pickUpFirstItem(){
         WebElement dropdown = driver.findElement(By.id("dropdown"));
         dropdown.click();
         List<WebElement> dropdownList = driver.findElements(By.xpath
@@ -36,7 +36,7 @@ public class Dropdown extends HerokuApp{
     }
 
     @Test
-    public void PickUpSecondItem(){
+    public void pickUpSecondItem(){
         WebElement dropdown = driver.findElement(By.id("dropdown"));
         dropdown.click();
         List<WebElement> dropdownList = driver.findElements(By.xpath

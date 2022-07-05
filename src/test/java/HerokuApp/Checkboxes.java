@@ -11,33 +11,33 @@ import java.util.List;
 public class Checkboxes extends HerokuApp {
 
     @BeforeMethod
-    public void CheckboxesLink() {
+    public void checkboxesLink() {
         WebElement checkboxesLink = driver.findElement(By.xpath
                 ("//a[text()='Checkboxes']"));
         checkboxesLink.click();
     }
 
     @Test
-    public void ValidateFirstCheckbox() {
+    public void validateFirstCheckbox() {
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("[type=checkbox]"));
         Assert.assertNotEquals(checkboxes.get(0).getAttribute("checked"), "true");
     }
 
     @Test
-    public void PickUpFirstCheckbox() {
+    public void pickUpFirstCheckbox() {
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("[type=checkbox]"));
         checkboxes.get(0).click();
         Assert.assertEquals(checkboxes.get(0).getAttribute("checked"), "true");
     }
 
     @Test
-    public void ValidateSecondCheckbox() {
+    public void validateSecondCheckbox() {
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("[type=checkbox]"));
         Assert.assertEquals(checkboxes.get(1).getAttribute("checked"), "true");
     }
 
     @Test
-    public void UncheckSecondCheckbox() {
+    public void uncheckSecondCheckbox() {
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("[type=checkbox]"));
         checkboxes.get(1).click();
         Assert.assertNotEquals(checkboxes.get(1).getAttribute("checked"), "true");

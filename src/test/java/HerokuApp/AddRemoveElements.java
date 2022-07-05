@@ -11,56 +11,47 @@ import java.util.List;
 public class AddRemoveElements extends HerokuApp {
 
     @BeforeMethod
-    public void AddRemoveElementsLink() {
-        WebElement addRemoveElementsLink = driver.findElement(By.xpath
-                ("//a[text()='Add/Remove Elements']"));
+    public void addRemoveElementsLink() {
+        WebElement addRemoveElementsLink = driver.findElement(By.xpath("//a[text()='Add/Remove Elements']"));
         addRemoveElementsLink.click();
     }
 
     @Test
-    public void AddFirstElement() {
+    public void addFirstElement() {
         WebElement addElementButton = driver.findElement(By.xpath
                 ("//button[text()='Add Element']"));
         addElementButton.click();
-        Assert.assertTrue(driver.findElement(By.xpath("//button[1][text()='Delete']"))
-                .isDisplayed());
+        List<WebElement> deleteElementButtons = driver.findElements(By.xpath("//button[text()='Delete']"));
+        Assert.assertTrue(deleteElementButtons.get(0).isDisplayed());
     }
 
     @Test
-    public void AddSecondElement() {
-        WebElement addElementButton = driver.findElement(By.xpath
-                ("//button[text()='Add Element']"));
+    public void addSecondElement() {
+        WebElement addElementButton = driver.findElement(By.xpath("//button[text()='Add Element']"));
         addElementButton.click();
         addElementButton.click();
-        Assert.assertTrue(driver.findElement(By.xpath("//button[2][text()='Delete']"))
-                .isDisplayed());
+        List<WebElement> deleteElementButtons = driver.findElements(By.xpath("//button[text()='Delete']"));
+        Assert.assertTrue(deleteElementButtons.get(1).isDisplayed());
     }
 
     @Test
-    public void DeleteElement() {
-        WebElement addElementButton = driver.findElement(By.xpath
-                ("//button[text()='Add Element']"));
+    public void deleteElement() {
+        WebElement addElementButton = driver.findElement(By.xpath("//button[text()='Add Element']"));
         addElementButton.click();
         addElementButton.click();
-        WebElement deleteButton = driver.findElement(By.xpath
-                ("//button[1][text()='Delete']"));
-        deleteButton.click();
-        Assert.assertTrue(driver.findElement(By.xpath
-                ("//button[1][text()='Delete']")).isDisplayed());
+        List<WebElement> deleteElementButtons = driver.findElements(By.xpath("//button[text()='Delete']"));
+        deleteElementButtons.get(0).click();
+        Assert.assertTrue(deleteElementButtons.get(1).isDisplayed());
     }
 
     @Test
-    public void CountOfElements() {
-        WebElement addElementButton = driver.findElement(By.xpath
-                ("//button[text()='Add Element']"));
+    public void countOfElements() {
+        WebElement addElementButton = driver.findElement(By.xpath("//button[text()='Add Element']"));
         addElementButton.click();
         addElementButton.click();
-        WebElement deleteButton = driver.findElement(By.xpath
-                ("//button[1][text()='Delete']"));
-        deleteButton.click();
+        List<WebElement> deleteElementButtons = driver.findElements(By.xpath("//button[text()='Delete']"));
+        deleteElementButtons.get(0).click();
         List<WebElement> count = driver.findElements(By.xpath("//button[text()='Delete']"));
         Assert.assertEquals(count.size(), 1);
     }
-
-
 }
