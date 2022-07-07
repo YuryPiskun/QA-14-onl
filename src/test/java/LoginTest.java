@@ -5,6 +5,8 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
 
+
+
     @Test
     public void userShouldLoginWithCredentials() {
         loginPage.open();

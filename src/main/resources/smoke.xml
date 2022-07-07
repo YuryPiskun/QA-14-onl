@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Tests">
+    <test name="Login/Logout Tests">
+        <classes>
+            <class name="LoginTest"/>
+        </classes>
+    </test>
+    <test name="Product Tests">
+        <classes>
+            <class name="ProductsTest"/>
+        </classes>
+    </test>
+</suite>
+

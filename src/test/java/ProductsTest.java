@@ -22,7 +22,7 @@ public class ProductsTest extends BaseTest {
     }
 
     @Test
-    public void addProductToAndGoToCheckout(){
+    public void addProductToCartAndGoToCheckout(){
         loginPage.open();
         loginPage.loginAsStandardUser();
         productsPage.addToCart("Sauce Labs Backpack");
