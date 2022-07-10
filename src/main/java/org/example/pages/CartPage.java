@@ -1,16 +1,16 @@
 package org.example.pages;
 
-import org.example.pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CartPage extends BasePage {
+    private final By checkoutButton = By.id("checkout");
+    private final By continueShoppingButton = By.id("continue-shopping");
+
     public CartPage(WebDriver driver) {
         super(driver);
     }
-    private final By checkoutButton = By.id("checkout");
-    private final By continueShoppingButton = By.id("continue-shopping");
 
     public String productNameInCart() {
         WebElement productName = driver.findElement(By.className("inventory_item_name"));
@@ -24,5 +24,8 @@ public class CartPage extends BasePage {
 
     public void goToCheckout() {
         driver.findElement(checkoutButton).click();
+    }
+    public void continueShopping() {
+        driver.findElement(continueShoppingButton).click();
     }
 }

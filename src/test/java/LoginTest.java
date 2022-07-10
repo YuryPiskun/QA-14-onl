@@ -6,7 +6,6 @@ import static org.testng.Assert.assertTrue;
 public class LoginTest extends BaseTest {
 
 
-
     @Test
     public void userShouldLoginWithCredentials() {
         loginPage.open();
@@ -15,11 +14,32 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void passwordShouldBeRequiredForLogin(){
+    public void passwordShouldBeRequiredForLogin() {
         loginPage.open();
         loginPage.login("standard_user", "");
-        assertEquals(loginPage.getError(),"Epic sadface: Password is required","The error is incorrect");
+        assertEquals(loginPage.getError(), "Epic sadface: Password is required", "The error is incorrect");
     }
 
+    @Test
+    public void userNameShouldBeRequiredForLogin() {
+        loginPage.open();
+        loginPage.login("", "11111");
+        assertEquals(loginPage.getError(), "Epic sadface: Username is required", "The error is incorrect");
+    }
 
+    @Test
+    public void userShouldNotBeLoggedInBeWithInvalidPassword() {
+        loginPage.open();
+        loginPage.login("standard_user", "11111");
+        assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service",
+                "The error is incorrect");
+    }
+
+    @Test
+    public void userShouldNotBeLoggedInBeWithInvalidUserName(){
+        loginPage.open();
+        loginPage.login("11111", "secret_sauce");
+        assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service",
+                "The error is incorrect");
+    }
 }

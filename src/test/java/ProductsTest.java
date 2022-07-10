@@ -20,16 +20,5 @@ public class ProductsTest extends BaseTest {
         productsPage.goToCart();
         Assert.assertEquals(cartPage.productPriceInCart(), "$29.99");
     }
-
-    @Test
-    public void addProductToCartAndGoToCheckout(){
-        loginPage.open();
-        loginPage.loginAsStandardUser();
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.goToCart();
-        cartPage.goToCheckout();
-        checkoutPage.fillCheckoutFields("Yury", "Piskun", "11111");
-        Assert.assertEquals(checkoutPage.getFirstNameFieldValue(),"Yury");
-    }
 }
 

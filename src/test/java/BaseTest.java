@@ -17,6 +17,7 @@ public class BaseTest {
     CartPage cartPage;
     CheckoutPage checkoutPage;
 
+
     @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
