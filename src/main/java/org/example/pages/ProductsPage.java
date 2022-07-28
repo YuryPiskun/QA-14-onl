@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import io.qameta.allure.Step;
 import org.example.pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,7 @@ public class ProductsPage extends BasePage {
 
     private final By cartXpath = By.xpath("//span[@class='shopping_cart_badge']");
 
+    @Step("Add product ({productName}) to card")
     public void addToCart(String productName) {
         By fullLocator = By.xpath(String.format(addToCartButton, productName));
         driver.findElement(fullLocator).click();

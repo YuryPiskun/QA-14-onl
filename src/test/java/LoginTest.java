@@ -1,3 +1,4 @@
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -6,7 +7,8 @@ import static org.testng.Assert.assertTrue;
 public class LoginTest extends BaseTest {
 
 
-    @Test
+    @Test(description = "")
+    @Description("Проверка на вход с правильными данными")
     public void userShouldLoginWithCredentials() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -35,11 +37,12 @@ public class LoginTest extends BaseTest {
                 "The error is incorrect");
     }
 
-    @Test
+    @Test(description = "")
+    @Description("Тест сломан специально, чтобы увидеть скрин")
     public void userShouldNotBeLoggedInBeWithInvalidUserName(){
         loginPage.open();
         loginPage.login("11111", "secret_sauce");
-        assertEquals(loginPage.getError(), "Epic sadface: Username and password do not match any user in this service",
+        assertEquals(loginPage.getError(), "Epic sadface: !!!Username and password do not match any user in this service",
                 "The error is incorrect");
     }
 }
